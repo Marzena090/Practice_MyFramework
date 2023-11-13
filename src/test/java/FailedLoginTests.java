@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -36,13 +37,15 @@ public class FailedLoginTests {
         // click the Sign in button
         TopMenuPage topMenuPage = new TopMenuPage(driver);
         topMenuPage.clickOnSignInLink();
-
+        // fill in the username and the password fields with incorrect data
         LoginPage loginPage = new LoginPage(driver);
+        // initialization of elements
+        PageFactory.initElements(driver, loginPage);
         loginPage.typeIntoUsernameField("Koko30");
         loginPage.typeIntoPasswordField("Random123");
         loginPage.clickOnLogInBtn();
-        String warningText = loginPage.getWarningMsg();
         // test if displayed text is correct
+        String warningText = loginPage.getWarningMsg();
         assertEquals(warningText, "Invalid username or password. Signon failed.");
     }
 
