@@ -36,12 +36,9 @@ public class FailedLoginTests {
 
         // click the Sign in button
         TopMenuPage topMenuPage = new TopMenuPage(driver);
-        PageFactory.initElements(driver, topMenuPage);
         topMenuPage.clickOnSignInLink();
         // fill in the username and the password fields with incorrect data
         LoginPage loginPage = new LoginPage(driver);
-        // initialization of elements
-        PageFactory.initElements(driver, loginPage);
         loginPage.typeIntoUsernameField("Koko30");
         loginPage.typeIntoPasswordField("Random123");
         loginPage.clickOnLogInBtn();
