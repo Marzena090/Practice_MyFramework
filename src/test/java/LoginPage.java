@@ -1,31 +1,45 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
+    @FindBy(name= "username")
+    private WebElement usernameField;
+
+    @FindBy(name="password")
+    private WebElement passwordField;
+
+    @FindBy(name="signon")
+    private WebElement loginBtn;
+
+    @FindBy(css="#Content ul[class='messages'] li")
+    private WebElement messageLabel;
+
     private WebDriver driver;
     public LoginPage(WebDriver driver){
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void typeIntoUsernameField(String username){
-        WebElement usernameField = driver.findElement(By.name("username"));
+        usernameField.clear();
         usernameField.sendKeys(username);
     }
 
     public void typeIntoPasswordField(String password){
-        WebElement passwordField = driver.findElement(By.name("password"));
+        passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     public void clickOnLogInBtn(){
-        WebElement loginBtn = driver.findElement(By.name("signon"));
         loginBtn.click();
     }
 
     public String getWarningMsg(){
-        WebElement messageLabel = driver.findElement(By.cssSelector("#Content ul[class='messages'] li"));
         String warningText = messageLabel.getText();
         return warningText;
     }
