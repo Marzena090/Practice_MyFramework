@@ -29,7 +29,7 @@ public class FailedLoginTests {
     }
 
     @Test
-    public void asUserTryToLogInWithIncorrectData() {
+    public void asUserTryToLogInWithInvalidData() {
         // enter the store
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnEnterStoreLink();
@@ -45,6 +45,26 @@ public class FailedLoginTests {
         // test if displayed text is correct
         String warningText = loginPage.getWarningMsg();
         assertEquals(warningText, "Invalid username or password. Signon failed.");
+    }
+
+    @Test
+    public void asUserLoginUsingValidData(){
+        // enter the store
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnEnterStoreLink();
+
+        // click the Sign in button
+        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        topMenuPage.clickOnSignInLink();
+        // fill in the username and the password fields with incorrect data
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.typeIntoUsernameField("j2ee");
+        loginPage.typeIntoPasswordField("j2ee");
+        loginPage.clickOnLogInBtn();
+        // test is after login in the logo has been displayed
+        FooterPage footerPage = new FooterPage(driver);
+        assertTrue(footerPage.isBannerAfterLoginDisplayed());
+
     }
 
     @AfterMethod
