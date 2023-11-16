@@ -18,6 +18,8 @@ public class TestBase {
         driver = new ChromeDriver();
         // setting Implicit Wait for 10 seconds
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // maximize the window
+        driver.manage().window().maximize();
         // go to the store page
         driver.get("https://przyklady.javastart.pl/jpetstore/");
     }
