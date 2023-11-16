@@ -22,14 +22,14 @@ public class FailedLoginTests extends TestBase {
     @Test
     public void asUserTryToLogInWithInvalidData() {
         // enter the store
-        LandingPage landingPage = new LandingPage(driver);
+        LandingPage landingPage = new LandingPage();
         landingPage.clickOnEnterStoreLink();
 
         // click the Sign in button
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        TopMenuPage topMenuPage = new TopMenuPage();
         topMenuPage.clickOnSignInLink();
         // fill in the username and the password fields with incorrect data
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
         loginPage.typeIntoUsernameField("Koko30");
         loginPage.typeIntoPasswordField("Random123");
         loginPage.clickOnLogInBtn();
