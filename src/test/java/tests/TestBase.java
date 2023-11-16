@@ -9,17 +9,12 @@ import java.sql.Driver;
 import java.time.Duration;
 
 public class TestBase {
-    protected WebDriver driver;
-
     @BeforeMethod
     public void beforeTest() {
-        driver = DriverManager.getWebDriver();
-        // setting Implicit Wait for 10 seconds
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        // maximize the window
-        driver.manage().window().maximize();
-        // go to the store page
-        driver.get("https://przyklady.javastart.pl/jpetstore/");
+        DriverManager.getWebDriver();
+        DriverUtils.setInitialConfig();
+        DriverUtils.navigateToPage("http://przyklady.javastart.pl/jpetstore/");
+
     }
 
     @AfterMethod
