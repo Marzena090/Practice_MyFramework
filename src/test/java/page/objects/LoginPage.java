@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tests.DriverManager;
+import tests.waits.WaitForElement;
 
 public class LoginPage {
 
@@ -26,6 +27,7 @@ public class LoginPage {
     }
 
     public void typeIntoUsernameField(String username){
+        WaitForElement.waitUntilElementVisible(usernameField);
         usernameField.clear();
         usernameField.sendKeys(username);
     }
@@ -36,10 +38,12 @@ public class LoginPage {
     }
 
     public void clickOnLogInBtn(){
+
         loginBtn.click();
     }
 
     public String getWarningMsg(){
+        WaitForElement.waitUntilElementVisible(messageLabel);
         String warningText = messageLabel.getText();
         return warningText;
     }

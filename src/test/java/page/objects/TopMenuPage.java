@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
 import tests.DriverManager;
+import tests.waits.WaitForElement;
 
 public class TopMenuPage {
     @FindBy(linkText = "Sign In")
@@ -16,6 +17,7 @@ public class TopMenuPage {
     }
 
     public void clickOnSignInLink(){
+        WaitForElement.waitUntilElementClickable(signInLink);
         signInLink.click();
     }
 }

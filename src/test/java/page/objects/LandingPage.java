@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tests.DriverManager;
+import tests.waits.WaitForElement;
 
 public class LandingPage {
     @FindBy(css = "#Content a")
@@ -16,6 +17,7 @@ public class LandingPage {
     }
 
     public void clickOnEnterStoreLink(){
+        WaitForElement.waitUntilElementClickable(enterStoreLink);
         enterStoreLink.click();
     }
 }
