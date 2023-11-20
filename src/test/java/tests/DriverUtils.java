@@ -5,7 +5,7 @@ import java.time.Duration;
 public class DriverUtils {
     public static void setInitialConfig(){
         // setting Implicit Wait for 10 seconds
-        DriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // DriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         // maximize the window
         DriverManager.getWebDriver().manage().window().maximize();
     }
