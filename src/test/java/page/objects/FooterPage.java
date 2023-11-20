@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tests.DriverManager;
+import tests.waits.WaitForElement;
 
 public class FooterPage {
 
@@ -18,6 +19,7 @@ public class FooterPage {
     }
 
     public boolean isBannerAfterLoginDisplayed(){
+        WaitForElement.waitUntilElementVisible(bannerAfterLogin);
         boolean isDisplayed = bannerAfterLogin.isDisplayed();
         return isDisplayed;
     }
