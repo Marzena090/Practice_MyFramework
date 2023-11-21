@@ -1,6 +1,6 @@
-package tests;
+package tests.driver;
 
-import java.time.Duration;
+import tests.driver.DriverManager;
 
 public class DriverUtils {
     public static void setInitialConfig(){
