@@ -5,8 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tests.driver.DriverManager;
 import tests.waits.WaitForElement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class LandingPage {
+    private Logger logger = LogManager.getRootLogger();
     @FindBy(css = "#Content a")
     private WebElement enterStoreLink;
 
@@ -17,5 +20,6 @@ public class LandingPage {
     public void clickOnEnterStoreLink(){
         WaitForElement.waitUntilElementClickable(enterStoreLink);
         enterStoreLink.click();
+        logger.info("Clicked on Enter Store link");
     }
 }
