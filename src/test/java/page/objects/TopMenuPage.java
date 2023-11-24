@@ -1,12 +1,17 @@
 package page.objects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
 import tests.driver.DriverManager;
 import tests.waits.WaitForElement;
 
+
+
 public class TopMenuPage {
+    private Logger logger = LogManager.getRootLogger();
     @FindBy(linkText = "Sign In")
     private WebElement signInLink;
 
@@ -17,5 +22,6 @@ public class TopMenuPage {
     public void clickOnSignInLink(){
         WaitForElement.waitUntilElementClickable(signInLink);
         signInLink.click();
+        logger.info("Clicked on Sign In Link");
     }
 }
