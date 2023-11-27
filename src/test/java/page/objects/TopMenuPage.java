@@ -19,9 +19,10 @@ public class TopMenuPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickOnSignInLink(){
+    public LoginPage clickOnSignInLink(){
         WaitForElement.waitUntilElementClickable(signInLink);
         signInLink.click();
         logger.info("Clicked on Sign In Link");
+        return new LoginPage();
     }
 }
