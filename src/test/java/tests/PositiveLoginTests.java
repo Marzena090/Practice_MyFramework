@@ -19,21 +19,16 @@ public class PositiveLoginTests extends TestBase {
 
     @Test
     public void asUserLoginUsingValidData(){
-        // enter the store
-        LandingPage landingPage = new LandingPage();
-        landingPage.clickOnEnterStoreLink();
 
-        // click the Sign in button
-        TopMenuPage topMenuPage = new TopMenuPage();
-        topMenuPage.clickOnSignInLink();
-        // fill in the username and the password fields with incorrect data
-        LoginPage loginPage = new LoginPage();
-        loginPage.typeIntoUsernameField("j2ee");
-        loginPage.typeIntoPasswordField("j2ee");
-        loginPage.clickOnLogInBtn();
-        // test is after login in the logo has been displayed
-        FooterPage footerPage = new FooterPage();
-        assertTrue(footerPage.isBannerAfterLoginDisplayed());
+        LandingPage landingPage = new LandingPage();
+        boolean isBannerAfterLoginDisplayed = landingPage.clickOnEnterStoreLink()
+                .clickOnSignInLink()
+                .typeIntoUsernameField("j2ee")
+                .typeIntoPasswordField("j2ee")
+                .clickOnLogInBtn()
+                .isBannerAfterLoginDisplayed();
+
+        assertTrue(isBannerAfterLoginDisplayed);
 
     }
 
