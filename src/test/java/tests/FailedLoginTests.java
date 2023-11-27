@@ -23,16 +23,14 @@ public class FailedLoginTests extends TestBase {
     public void asUserTryToLogInWithInvalidData() {
         // enter the store
         LandingPage landingPage = new LandingPage();
-        landingPage.clickOnEnterStoreLink();
+        landingPage
+                .clickOnEnterStoreLink()
+                .clickOnSignInLink()
+                .typeIntoUsernameField("Koko30")
+                .typeIntoPasswordField("Random123")
+                .clickOnLogInBtn();
 
-        // click the Sign in button
-        TopMenuPage topMenuPage = new TopMenuPage();
-        topMenuPage.clickOnSignInLink();
-        // fill in the username and the password fields with incorrect data
         LoginPage loginPage = new LoginPage();
-        loginPage.typeIntoUsernameField("Koko30");
-        loginPage.typeIntoPasswordField("Random123");
-        loginPage.clickOnLogInBtn();
         // test if displayed text is correct
         String warningText = loginPage.getWarningMsg();
         assertEquals(warningText, "Invalid username or password. Signon failed.");
