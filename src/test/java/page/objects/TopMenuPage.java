@@ -5,8 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
-import tests.driver.DriverManager;
-import tests.waits.WaitForElement;
+import driver.DriverManager;
+import waits.WaitForElement;
 
 
 

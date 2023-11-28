@@ -1,6 +1,4 @@
-package tests.driver;
-
-import tests.driver.DriverManager;
+package driver;
 
 public class DriverUtils {
     public static void setInitialConfig(){
