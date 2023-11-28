@@ -1,7 +1,6 @@
-package tests.driver;
+package driver;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverManager {
     private static final BrowserType BROWSER_TYPE = BrowserType.CHROME;

@@ -1,4 +1,4 @@
-package tests.driver;
+package driver;
 
 public enum BrowserType {
     // list of browsers

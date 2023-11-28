@@ -1,9 +1,9 @@
-package tests.waits;
+package waits;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import tests.driver.DriverManager;
+import driver.DriverManager;
 
 import java.time.Duration;
 
